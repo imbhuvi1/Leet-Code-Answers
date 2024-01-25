@@ -1,0 +1,21 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        String ans = "";
+        List<String> arrl = new ArrayList<>();
+        fun(n,0,0,ans,arrl);
+        return arrl;
+    }
+    public static void fun(int n,int op, int cl, String ans,List<String> arrl){
+        if(op==n && cl==n){
+            // System.out.println(ans);
+            arrl.add(ans);
+            return;
+        }
+        if(op<n){
+            fun(n,op+1,cl,ans+'(',arrl);
+        }
+        if(cl<op){
+            fun(n,op,cl+1,ans+')',arrl);
+        }
+    }
+}
